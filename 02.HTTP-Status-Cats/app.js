@@ -24,13 +24,15 @@ const allCatsTemplate = (cats) => html`
 `;
 
 function onToggle(event) {
-    const catId = event.target.parentElement.querySelector('.status').id;
-    const cat = document.getElementById(catId);
+    const cat = event.target.parentElement.querySelector('.status');
+    const button = event.target;
 
     if(cat.style.display === 'none') {
         cat.style.display = '';
+        button.textContent = 'Hide status code';
     } else {
         cat.style.display = 'none';
+        button.textContent = 'Show status code';
     }
 }
 
