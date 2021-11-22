@@ -10,7 +10,7 @@ updateMenu();
 
 async function updateMenu() {
     const records = await get();
-    const options = Object.keys(records).map(el => records[el]);
+    const options = Object.values(records);
 
     const elementTemplate = (options) => html`${options.map(option => html`<option value="${option._id}">${option.text}</option>`)}`;
     render(elementTemplate(options), dropMenu);
