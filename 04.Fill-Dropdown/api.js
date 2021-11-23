@@ -38,10 +38,23 @@ function createOptions(method='get', data) {
     return options;
 }
 
-export async function get() {
-    return request('/jsonstore/advanced/dropdown', createOptions());
+async function get(url) {
+    return request(url, createOptions());
 }
 
-export async function post(data) {
-    return request('/jsonstore/advanced/dropdown', createOptions('post', data));
+async function post(url, data) {
+    return request(url, createOptions('post', data));
 }
+
+async function getOptions() {
+   return await get('/jsonstore/advanced/dropdown')
+}
+
+async function createOption(data) {
+    return await post('/jsonstore/advanced/dropdown', data)
+}
+
+export {
+    getOptions,
+    createOption
+};

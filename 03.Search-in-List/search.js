@@ -2,6 +2,7 @@ import {html, render} from '../node_modules/lit-html/lit-html.js';
 
 import {towns as townsNames} from "./towns.js";
 
+
 const towns = townsNames.map(town => ({name: town, match: false}));
 
 const townsDiv = document.getElementById('towns');

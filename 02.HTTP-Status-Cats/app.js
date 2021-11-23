@@ -2,6 +2,7 @@ import {html, render} from '../node_modules/lit-html/lit-html.js';
 
 import {cats} from "./catSeeder.js";
 
+
 const displaySection = document.getElementById('allCats')
 
 const catTemplate = (cat, onToggle) => html`

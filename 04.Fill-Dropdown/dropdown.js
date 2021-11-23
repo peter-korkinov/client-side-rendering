@@ -1,5 +1,5 @@
 import {html, render} from '../node_modules/lit-html/lit-html.js';
-import {get, post} from './api.js';
+import {getOptions, createOption} from './api.js';
 
 
 const dropMenu = document.getElementById('menu');
@@ -9,7 +9,7 @@ form.addEventListener('submit', onSubmit);
 updateMenu();
 
 async function updateMenu() {
-    const records = await get();
+    const records = await getOptions();
     const options = Object.values(records);
 
     const elementTemplate = (options) => html`${options.map(option => html`<option value="${option._id}">${option.text}</option>`)}`;
@@ -22,6 +22,6 @@ async function onSubmit(event) {
     const text = new FormData(form).get('text');
 
     form.reset();
-    await post({text});
+    await createOption({text});
     updateMenu();
 }
